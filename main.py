@@ -1,8 +1,9 @@
 import os
+from pathlib import Path
 
 import discord
-from discord import InteractionContext
 from dotenv import load_dotenv
+from loguru import logger
 
 if os.name != "nt":
     import uvloop
@@ -11,32 +12,31 @@ if os.name != "nt":
 
 load_dotenv()
 
-bot = discord.Bot(intents=discord.Intents.default())
+bot = discord.Bot(intents=discord.Intents.default(), debug_guilds=[460038871279861761])
 TOKEN = os.getenv("TOKEN")
 
 
 @bot.event
+async def on_connect():
+    logger.info("연결됐어!")
+
+
+@bot.event
 async def on_ready():
-    print("봇이 준비되었습니다!")
+    logger.info("모닐 바보봇 준비됐어!")
 
 
-@bot.slash_command(name="바보")
-async def slash_babo(
-    ctx: InteractionContext,
-    user: discord.Option(discord.Member, description="이 사람이 바보야!"),
-):
-    "바보바보!"
-    await ctx.respond(f"{user.mention} 바보!")
+@bot.event
+async def on_disconnect():
+    logger.info("끊겼어!")
 
 
-@bot.message_command(name="바보")
-async def message_babo(ctx: InteractionContext, message: discord.Message):
-    await ctx.respond(f"{message.author.mention} 바보!")
-
-
-@bot.user_command(name="바보")
-async def user_babo(ctx: InteractionContext, user: discord.Member):
-    await ctx.respond(f"{user.mention} 바보!")
+# add Cogs
+for cog in Path("cogs").rglob("*.py"):
+    if not cog.name.startswith("_"):
+        cog_name = f"cogs.{cog.stem}"
+        bot.load_extension(cog_name)
+        logger.info(f"{cog_name} 불러왔어!")
 
 
 bot.run(TOKEN)
