@@ -11,6 +11,7 @@ aiohttp = {extras = ["speedups"], version = "*"}
 py-cord = {extras = ["speed"], version = "*"}
 uvloop = {version = "*", markers = "os_name != 'nt'"}
 python-dotenv = "*"
+loguru = "*"
 
 [tool.poetry.dev-dependencies]
 black = "*"
