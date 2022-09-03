@@ -1,4 +1,4 @@
-git+https://github.com/Pycord-Development/pycord.git
 aiohttp[speedups]
+py-cord
 python-dotenv
 uvloop; os_name != "nt"

@@ -1,14 +1,12 @@
-FROM python:3.9-slim
-
-RUN apt update && apt install -y gcc git
+FROM python:3.10-slim
 
 WORKDIR /app
 
 COPY pyproject.toml poetry.lock /app/
 
-RUN pip install --no-cache-dir poetry && \
-    poetry config virtualenvs.create false && \
-    poetry install --no-dev
+RUN pip install micropipenv[toml] && \
+    micropipenv install --deploy && \
+    pip cache purge
 
 COPY . .
 
