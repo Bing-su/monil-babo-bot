@@ -12,7 +12,10 @@ if os.name != "nt":
 
 load_dotenv()
 
-bot = discord.Bot(intents=discord.Intents.default(), debug_guilds=[460038871279861761])
+intents = discord.Intents.default()
+intents.members = True
+
+bot = discord.Bot(intents=intents)
 TOKEN = os.getenv("TOKEN")
 
 
@@ -29,6 +32,12 @@ async def on_ready():
 @bot.event
 async def on_disconnect():
     logger.info("끊겼어!")
+
+
+@bot.slash_command(name="생존확인")
+async def ping(ctx: discord.ApplicationContext):
+    logger.info(f"{ctx.author}가 내가 살아있는지 궁금한가봐!")
+    await ctx.respond("나 살아있어!")
 
 
 # add Cogs
