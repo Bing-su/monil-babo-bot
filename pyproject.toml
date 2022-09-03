@@ -7,8 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-aiohttp = {extras = ["speedups"], version = "*"}
-py-cord = {extras = ["speed"], version = "*"}
+py-cord = "*"
 uvloop = {version = "*", markers = "os_name != 'nt'"}
 python-dotenv = "*"
 loguru = "*"
