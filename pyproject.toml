@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "monil-babo-bot"
-version = "0.2.0"
+version = "0.2.1"
 description = "모닐바보 디스코드 봇"
 authors = ["Bingsu <ks2515@naver.com>"]
 readme = "README.md"
