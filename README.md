@@ -7,5 +7,5 @@
 ### 초대 링크
 
 ```
-https://discord.com/api/oauth2/authorize?client_id=885148611577532436&permissions=277025441792&scope=bot%20applications.commands
+https://discord.com/api/oauth2/authorize?client_id=1015610376878043146&permissions=277025441792&scope=bot%20applications.commands
 ```

@@ -13,15 +13,15 @@ if os.name != "nt":
 load_dotenv()
 
 intents = discord.Intents.default()
-intents.members = True
 
-bot = discord.Bot(intents=intents)
-TOKEN = os.getenv("TOKEN")
-
-
-@bot.event
-async def on_connect():
-    logger.info("연결됐어!")
+if "DEBUG" in os.environ:
+    bot = discord.Bot(
+        intents=intents,
+        debug_guilds=[460038871279861761],
+    )
+    logger.info("디버그 모드야!")
+else:
+    bot = discord.Bot(intents=intents)
 
 
 @bot.event
@@ -29,14 +29,10 @@ async def on_ready():
     logger.info("모닐 바보봇 준비됐어!")
 
 
-@bot.event
-async def on_disconnect():
-    logger.info("끊겼어!")
-
-
-@bot.slash_command(name="생존확인")
+@bot.slash_command(name="생존확인", guild_ids=[460038871279861761])
 async def ping(ctx: discord.ApplicationContext):
-    logger.info(f"{ctx.author}가 내가 살아있는지 궁금한가봐!")
+    "생존확인"
+    logger.info(f"{ctx.author}가 내가 살아있는지 궁금한가봐! {bot.latency:04f}s")
     await ctx.respond("나 살아있어!")
 
 
@@ -48,4 +44,6 @@ for cog in Path("cogs").rglob("*.py"):
         logger.info(f"{cog_name} 불러왔어!")
 
 
+# run
+TOKEN = os.getenv("TOKEN")
 bot.run(TOKEN)
