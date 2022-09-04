@@ -13,6 +13,8 @@ if os.name != "nt":
 load_dotenv()
 
 intents = discord.Intents.default()
+intents.members = True
+intents.message_content = True
 
 if "DEBUG" in os.environ:
     bot = discord.Bot(
@@ -29,11 +31,11 @@ async def on_ready():
     logger.info("모닐 바보봇 준비됐어!")
 
 
-@bot.slash_command(name="생존확인", guild_ids=[460038871279861761])
+@bot.slash_command(name="생존확인")
 async def ping(ctx: discord.ApplicationContext):
     "생존확인"
-    logger.info(f"{ctx.author}가 내가 살아있는지 궁금한가봐! {bot.latency:04f}s")
-    await ctx.respond("나 살아있어!")
+    logger.info(f"{ctx.author}가 내가 살아있는지 궁금한가봐! {bot.latency:.4f}s")
+    await ctx.respond(f"나 살아있어! `{bot.latency:.4f}s`")
 
 
 # add Cogs
