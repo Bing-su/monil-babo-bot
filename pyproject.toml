@@ -4,6 +4,7 @@ version = "0.2.1"
 description = "모닐바보 디스코드 봇"
 authors = ["Bingsu <ks2515@naver.com>"]
 readme = "README.md"
+repository = "https://github.com/Bing-su/monil-babo-bot"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -13,7 +14,7 @@ python-dotenv = "*"
 loguru = "*"
 
 [tool.poetry.dev-dependencies]
-black = "*"
+black = ">=22.6.0"
 isort = "*"
 mypy = "*"
 pre-commit = "*"
