@@ -16,13 +16,13 @@ class Babo(Cog):
         "바보바보!"
         await ctx.respond(f"{user.mention} 바보!")
 
-    @commands.message_command(name="바보")
-    async def message_babo(self, ctx: ApplicationContext, message: discord.Message):
-        await ctx.respond(f"{message.author.mention} 바보!")
-
     @commands.user_command(name="바보")
     async def user_babo(self, ctx: ApplicationContext, user: discord.Member):
         await ctx.respond(f"{user.mention} 바보!")
+
+    @commands.message_command(name="바보")
+    async def message_babo(self, ctx: ApplicationContext, message: discord.Message):
+        await message.reply(f"{message.author.mention} 바보!")
 
     # --- 똑똑해 ---
     @commands.slash_command(name="똑똑해")
@@ -34,15 +34,15 @@ class Babo(Cog):
         "똑똑해!"
         await ctx.respond(f"{user.mention} 똑또캐!")
 
+    @commands.user_command(name="똑똑해")
+    async def user_ddokddokhae(self, ctx: ApplicationContext, user: discord.Member):
+        await ctx.respond(f"{user.mention} 똑또캐!")
+
     @commands.message_command(name="똑똑해")
     async def message_ddokddokhae(
         self, ctx: ApplicationContext, message: discord.Message
     ):
-        await ctx.respond(f"{message.author.mention} 똑또캐!")
-
-    @commands.user_command(name="똑똑해")
-    async def user_ddokddokhae(self, ctx: ApplicationContext, user: discord.Member):
-        await ctx.respond(f"{user.mention} 똑또캐!")
+        await message.reply(f"{message.author.mention} 똑또캐!")
 
 
 def setup(bot: discord.Bot):
