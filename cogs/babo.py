@@ -22,6 +22,7 @@ class Babo(Cog):
 
     @commands.message_command(name="바보")
     async def message_babo(self, ctx: ApplicationContext, message: discord.Message):
+        await ctx.delete()
         await message.reply(f"{message.author.mention} 바보!")
 
     # --- 똑똑해 ---
@@ -42,6 +43,7 @@ class Babo(Cog):
     async def message_ddokddokhae(
         self, ctx: ApplicationContext, message: discord.Message
     ):
+        await ctx.delete()
         await message.reply(f"{message.author.mention} 똑또캐!")
 
 
