@@ -16,7 +16,7 @@ intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 
-if "DEBUG" in os.environ:
+if os.getenv("DEBUG", False):
     bot = discord.Bot(
         intents=intents,
         debug_guilds=[460038871279861761],
@@ -29,11 +29,16 @@ else:
 @bot.event
 async def on_ready():
     logger.info("모닐 바보봇 준비됐어!")
+    await bot.change_presence(
+        activity=discord.Activity(
+            name="모닐은 바보가 아니야!", type=discord.ActivityType.playing
+        )
+    )
 
 
 @bot.slash_command(name="생존확인")
 async def ping(ctx: discord.ApplicationContext):
-    "생존확인"
+    "생존확인!"
     logger.info(f"{ctx.author}가 내가 살아있는지 궁금한가봐! {bot.latency:.4f}s")
     await ctx.respond(f"나 살아있어! `{bot.latency:.4f}s`")
 
@@ -47,5 +52,5 @@ for cog in Path("cogs").rglob("*.py"):
 
 
 # run
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.environ["TOKEN"]
 bot.run(TOKEN)
