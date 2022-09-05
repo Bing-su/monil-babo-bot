@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "monil-babo-bot"
-version = "0.2.1"
+version = "0.2.2"
 description = "모닐바보 디스코드 봇"
 authors = ["Bingsu <ks2515@naver.com>"]
 readme = "README.md"
@@ -8,7 +8,7 @@ repository = "https://github.com/Bing-su/monil-babo-bot"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-py-cord = "*"
+py-cord = "^2.1.1"
 uvloop = {version = "*", markers = "os_name != 'nt'"}
 python-dotenv = "*"
 loguru = "*"
