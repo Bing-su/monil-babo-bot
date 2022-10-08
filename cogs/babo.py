@@ -46,6 +46,16 @@ class Babo(Cog):
         await ctx.delete()
         await message.reply(f"{message.author.mention} 똑또캐!")
 
+    # --- 대신 말해줘 ---
+    @commands.slash_command(name="대신말해줘")
+    async def say_for_me(
+        self,
+        ctx: ApplicationContext,
+        text: Option(str, name="내용", description="대신 말해줄 내용을 적어줘!"),
+    ):
+        "대신 말해줄게!"
+        await ctx.respond(text)
+
 
 def setup(bot: discord.Bot):
     bot.add_cog(Babo(bot))
