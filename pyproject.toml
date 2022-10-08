@@ -12,8 +12,9 @@ py-cord = "^2.1.1"
 uvloop = {version = "*", markers = "os_name != 'nt'"}
 python-dotenv = "*"
 loguru = "*"
+julgi-game = "*"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 black = ">=22.6.0"
 isort = "*"
 mypy = "*"
