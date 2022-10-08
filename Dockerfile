@@ -7,7 +7,7 @@ WORKDIR /app
 COPY pyproject.toml poetry.lock /app/
 
 RUN pip install micropipenv[toml] && \
-    micropipenv install --deploy && \
+    micropipenv install && \
     pip cache purge
 
 COPY . .
