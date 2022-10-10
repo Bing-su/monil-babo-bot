@@ -201,7 +201,7 @@ requirements_deprecated_finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "julgi-game"
-version = "0.1.1"
+version = "0.2.0"
 description = "줄기 게임이야!"
 category = "main"
 optional = false
@@ -700,8 +700,8 @@ isort = [
     {file = "isort-5.10.1.tar.gz", hash = "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"},
 ]
 julgi-game = [
-    {file = "julgi-game-0.1.1.tar.gz", hash = "sha256:7ddd5066a8d3827752519138739fd78bb39d1c861afa99bdd716c541e7f35f1b"},
-    {file = "julgi_game-0.1.1-py3-none-any.whl", hash = "sha256:43194028c5648c4589ff3cf19cedaf08a23c35e3fcaabe888852cb97a96ff7db"},
+    {file = "julgi-game-0.2.0.tar.gz", hash = "sha256:0b824e6f47efc1abed73763d860631ecb65cff9885222e3cf99887929d2642d5"},
+    {file = "julgi_game-0.2.0-py3-none-any.whl", hash = "sha256:da6c8cf3f8303277bf487963b3f1d51d0887c69c5fe9c9a08e65df3e7e613e71"},
 ]
 kopp = [
     {file = "kopp-0.2.1-py3-none-any.whl", hash = "sha256:fbe64602a03a79a2b7a1601dc273c5160807c6e894f8484b99fcf267f34ec363"},
